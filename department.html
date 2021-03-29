@@ -156,51 +156,72 @@
 	<Br>
 	<Br>
 	<Br>
-	<Br>
-	<Br>
-		<p class="text-center" style="font-size:35px"><b>Thêm Mới Lương</b></p>
+		<p class="text-center" style="font-size:35px"><b>Danh Sách Phòng Ban</b></p>
 		<br/>
-        <div class="row">
-			<div class="col-md-5"></div>
-			<div class="col-md-4">
-				<div class="row">
-					<div class="col-md-3"><label for="fname">Mã Nhân Viên:</label></div>
-					<div class="col-md-5"><input type="text" id="msnv" name="msnv" value="TuanLA01"><br></div>
-				</div>
-				<br/>
-				<div class="row">
-					<div class="col-md-3"><label for="lname">Tháng:</label></div>
-					<div class="col-md-5"><input type="text" id="date" name="date" value="03"><br><br></div>
-				</div>
-				<div class="row">
-					<div class="col-md-3"><label for="lname">Tổng giờ làm:</label></div>
-					<div class="col-md-5">
-						<input type="text" id="note" name="note" value="230"><br><br>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3"><label for="lname">Hệ số:</label></div>
-					<div class="col-md-5"><input type="text" id="manager" name="manager" value="0.5"><br><br></div>
-				</div>
-				<div class="row">
-					<div class="col-md-3"><label for="lname">Thưởng:</label></div>
-					<div class="col-md-5"><input type="text" id="manager" name="manager" value="1000000"><br><br></div>
-				</div>
-				<div class="row">
-					<div class="col-md-3"><label for="lname">Phạt:</label></div>
-					<div class="col-md-5"><input type="text" id="manager" name="manager" value="200000"><br><br></div>
-				</div>
-				<div class="row">
-					<div class="col-md-3"><label for="lname">Tổng lương:</label></div>
-					<div class="col-md-5"><input type="text" id="manager" name="manager" value="12300000"><br><br></div>
-				</div>
-				<div class="row">
-					<div class="col-md-3"><label for="lname"></label></div>
-					<div class="col-md-5"><a href="salary.html" class="btn btn-primary">Submit</a><br></div>
-				</div>
-			</div>
-			<div class="col-md-3"></div>
-		</div>
+		<br/>
+		<a href="adddepart.html">Thêm mới phòng ban</a>
+		<br/>
+		<br/>
+        <table class="table table-bordered" id="myTable">
+            <thead>
+                <tr class="ex">
+                    <th width="auto">Mã</th>
+                    <th width="auto">Phòng Ban</th>
+                    <th>Ghi chú</th>
+                    <th>Quản lý</th>
+                    <th width="5px; !important">Tính Năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="devstaff.html">DEV01</a></td>
+                    <td>Phòng lập trình</td>
+                    <td></td>
+					<td>TuanLA01</td>
+                    <td>
+						
+                        <a class="edit" title="Sửa" data-toggle="tooltip"><i class="fa fa-pencil"
+                                aria-hidden="true"></i></a>
+                        <a class="delete" title="Xóa" data-toggle="tooltip"><i class="fa fa-trash-o"
+                                aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="salestaff.html">S01</a></td>
+                    <td>Phòng kinh doanh</td>
+                    <td></td>
+					<td>ManhND</td>
+                    <td>
+						
+                        <a class="edit" title="Sửa" data-toggle="tooltip"><i class="fa fa-pencil"
+                                aria-hidden="true"></i></a>
+                        <a class="delete" title="Xóa" data-toggle="tooltip"><i class="fa fa-trash-o"
+                                aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+				<tr>
+                    <td><a href="hrstaff.html">DEV01</a></td>
+                    <td>Phòng nhân sự</td>
+                    <td></td>
+					<td>GiangNT</td>
+                    <td>
+						
+                        <a class="edit" title="Sửa" data-toggle="tooltip"><i class="fa fa-pencil"
+                                aria-hidden="true"></i></a>
+                        <a class="delete" title="Xóa" data-toggle="tooltip"><i class="fa fa-trash-o"
+                                aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+                <div id="pageNavPosition" class="text-right"></div>
+                <script type="text/javascript">
+                    var pager = new Pager('myTable', 5);
+                    pager.init();
+                    pager.showPageNav('pager', 'pageNavPosition');
+                    pager.showPage(1);
+                </script>
+            </div>
     <hr class="hr1">
     <div class="container-fluid end">
         <div class="row text-center">
@@ -348,12 +369,13 @@
             });
             // Edit Hàng
             $(document).on("click", ".edit", function () {
-                $(this).parents("tr").find("td:not(:last-child)").each(function () {
+               /* $(this).parents("tr").find("td:not(:last-child)").each(function () {
                     $(this).html('<input type="text" class="form-control" value="' + $(this)
                         .text() + '">');
                 });
                 $(this).parents("tr").find(".add, .edit").toggle();
-                $(".add-new").attr("disabled", "disabled");
+                $(".add-new").attr("disabled", "disabled");*/
+				window.location.href = 'editdepart.html';
             });
             jQuery(function () {
                 jQuery(".add").click(function () {
